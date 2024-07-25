@@ -1,10 +1,10 @@
-- node: Disable NodeJS Default Version
+- name: Disable NodeJS Default Version
   ansible.builtin.shell: dnf module disable nodejs -y
 
-- node: enable NodeJS 20 Module
+- name: enable NodeJS 20 Module
   ansible.builtin.shell: dnf module enable nodejs:20 -y
 
-- node: Install NodeJS
+- name: Install NodeJS
   ansible.builtin.dnf:
     name: nodejs
     state: latest
@@ -14,7 +14,7 @@
     name: common
     tasks_from: app-prereq
 
-- node: download NodeJS depedencies
+- name: download NodeJS depedencies
   ansible.builtin.shell: npm install
   args:
     chdir: "{{ app_path }}"

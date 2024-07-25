@@ -11,7 +11,7 @@
 
 - name: updating config file
   ansible.builtin.copy:
-    source: nginx.conf
+    src: nginx.conf
     dest: /etc/nginx/nginx.conf
 
 #APP_PREREQ

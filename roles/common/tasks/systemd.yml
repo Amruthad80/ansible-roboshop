@@ -9,4 +9,4 @@
     name: component
     state: restarted
     enabled: true
-    daemon_reload: true
+    daemon-reload: true

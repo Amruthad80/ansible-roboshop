@@ -8,7 +8,7 @@
     tasks_from: app-prereq
 
 - name:  download dependencies
-  ansible.builtin.shell: mvn clean package ; mv target/{{ component }}-1.0.jar {{ component }}-v3.jar
+  ansible.builtin.shell: mvn clean package ; mv target/{{ component }}-1.0.jar {{ component }}.jar
   args:
     chdir: "{{ app_path }}"
 

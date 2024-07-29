@@ -19,7 +19,7 @@
   when: schema_setup is defined
 
 
-- name: Seystemd setup
+- name: Systemd setup
   ansible.builtin.include_role:
     name: common
     tasks_from: systemd

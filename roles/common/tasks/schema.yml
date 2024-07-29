@@ -24,6 +24,6 @@
         state: latest
 
     - name: load master data
-      ansible.biultin.shell: mysql -h mysql.{{ env }}.devopsb72.online -uroot -pRoboShop@1 < /app/db{{ item }}.sql
+      ansible.builtin.shell: mysql -h mysql.{{ env }}.devopsb72.online -uroot -pRoboShop@1 < /app/db{{ item }}.sql
       loop: "{{schema_files}}"
 

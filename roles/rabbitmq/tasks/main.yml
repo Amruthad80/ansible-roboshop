@@ -9,7 +9,7 @@
     state: latest
 
 - name: enable and restart service
-  ansible.biultin.systemd_server:
+  ansible.builtin.systemd_server:
     name: rabbitmq-server
     state: restarted
     enabled: yes

@@ -10,14 +10,20 @@
     state: latest
 
 - name: updtae redis config files - update Listen address
-  ansible.biultin.replace:
+  ansible.builtin.replace:
     path: /etc/redis/redis.conf
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
+
+- name: update listen address
+  ansible.builtin.lineinfile:
+    path: /etc/redis/redis.conf
+    regexp: 'protected-mode'
+    line: protected-mode no
+
 
 - name: restart redis service
   ansible.biultin.systemd_service:
     name: redis
     state: restarted
     enabled: yes
-    line: protected-mode no

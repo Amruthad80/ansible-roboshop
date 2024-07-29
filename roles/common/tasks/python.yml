@@ -1,12 +1,9 @@
-- name: Disable NodeJS Default Version
-  ansible.builtin.shell: dnf module disable nodejs -y
-
-- name: enable NodeJS 20 Module
-  ansible.builtin.shell: dnf module enable nodejs:20 -y
-
-- name: Install NodeJS
-  ansible.builtin.dnf:
-    name: nodejs
+- name: install python
+  ansible.biultin.dnf:
+    name:
+      - python3
+      - python3-devel
+      - gcc
     state: latest
 
 - name: Setup App prerequisites
@@ -14,11 +11,10 @@
     name: common
     tasks_from: app-prereq
 
-- name: download NodeJS depedencies
-  ansible.builtin.shell: npm install
+- name:  download dependencies
+  ansible.biultin.shell: pip3 install -r requirements.txt
   args:
     chdir: "{{ app_path }}"
-
 
 - name: load schema
   ansible.builtin.include_role:
@@ -31,4 +27,3 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: systemd
-

@@ -1,0 +1,4 @@
+- name: setup python service
+  ansible.biultin.include_role:
+    name: common
+    tasks_ python

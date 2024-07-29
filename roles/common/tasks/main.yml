@@ -1,0 +1,2 @@
+- name: set prompt
+  ansible.biultin.shell: set-prompt {{component}}-{{env}}

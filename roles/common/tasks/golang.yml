@@ -1,12 +1,6 @@
-- name: Disable NodeJS Default Version
-  ansible.builtin.shell: dnf module disable nodejs -y
-
-- name: enable NodeJS 20 Module
-  ansible.builtin.shell: dnf module enable nodejs:20 -y
-
-- name: Install NodeJS
+- name: Install Golang
   ansible.builtin.dnf:
-    name: nodejs
+    name: golang
     state: latest
 
 - name: Setup App prerequisites
@@ -15,7 +9,7 @@
     tasks_from: app-prereq
 
 - name: download NodeJS depedencies
-  ansible.builtin.shell: npm install
+  ansible.builtin.shell: go mod init dispatch ; go get ; go biult
   args:
     chdir: "{{ app_path }}"
 

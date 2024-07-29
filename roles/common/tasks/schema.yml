@@ -2,7 +2,7 @@
   when: schema_setup == "mongo"
   block:
    - name: copy MongoDB repo File
-     ansible.builtin.template:
+     ansible.builtin.copy:
       src: mongo.repo
       dest: /etc/yum.repos.d/mongo.repo
 
@@ -12,7 +12,7 @@
       state: latest
 
    - name: load master data
-     ansible.builtin.shell: mongosh --host mongo.{{ env }} </app/db/{{ item }}.js
+     ansible.builtin.shell: mongosh --host mongo.{{ env }}.devopsb72.online </app/db/{{ item }}.js
      loop: "{{schema_files}}"
 
 - name: load mysql schema
@@ -26,4 +26,5 @@
     - name: load master data
       ansible.builtin.shell: mysql -h mysql.{{ env }}.devopsb72.online -uroot -pRoboShop@1 < /app/db{{ item }}.sql
       loop: "{{schema_files}}"
+
 

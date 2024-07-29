@@ -19,7 +19,7 @@
   when: schema_setup ==  "mysql"
   block:
     - name: install mysql client
-      ansible.biultin.dnf:
+      ansible.builtin.dnf:
         name: mysql
         state: latest
 

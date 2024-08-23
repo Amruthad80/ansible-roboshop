@@ -1,6 +1,6 @@
 - name: Run frontend container
   containers.podman.podman_container:
-    name: cart
+    name: frontend
     image: public.ecr.aws/w8x4g9h7/roboshop-v3/forntend
     state: started
 
